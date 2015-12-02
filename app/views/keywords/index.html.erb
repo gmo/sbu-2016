@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Keywords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Count</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keywords.all.each do |keyword| %>
+      <tr>
+        <td><%= keyword.word.capitalize %></td>
+        <td class="center"><%= keyword.count %></td>
+        <td class="center"><%= link_to '[X]', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Keyword', new_keyword_path %>
