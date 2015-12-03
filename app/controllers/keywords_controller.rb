@@ -1,10 +1,11 @@
 class KeywordsController < ApplicationController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /keywords
   # GET /keywords.json
   def index
-    @keywords = Keyword.all
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
 
   # GET /keywords/1
@@ -70,5 +71,13 @@ class KeywordsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def keyword_params
       params.require(:keyword).permit(:word, :count)
+    end
+    
+    def sort_column
+      Keyword.column_names.include?(params[:sort]) ? params[:sort] : "word"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end

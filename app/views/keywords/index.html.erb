@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Keywords</h1>
+<INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
 
-<table>
+<table class="pretty">
   <thead>
     <tr>
-      <th>Word</th>
-      <th>Count</th>
+      <th><%= sortable "word"%></th>
+      <th><%= rev_sortable "count"%></th>
       <th>Delete</th>
     </tr>
   </thead>
