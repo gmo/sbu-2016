@@ -28,7 +28,7 @@ occurThread = Thread.new {
         DB.execute( "SELECT word from keywords" ).each {|word|
         word = word.to_s[2..-3].downcase
         if tweet.downcase.include? word
-        puts "found #{word}"
+        print "."
         DB.execute( "UPDATE keywords
                     SET count = (select count+1 FROM keywords WHERE word = '#{word}')
                     WHERE word = '#{word}'" )
@@ -39,4 +39,5 @@ occurThread = Thread.new {
 
 
 tweetStreamThread.join
+occurThread.join
 occurThread.join

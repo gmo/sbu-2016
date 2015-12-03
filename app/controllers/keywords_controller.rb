@@ -56,7 +56,7 @@ class KeywordsController < ApplicationController
   def destroy
     @keyword.destroy
     respond_to do |format|
-      format.html { redirect_to keywords_url, notice: 'Keyword was successfully destroyed.' }
+      format.html { redirect_to keywords_url, notice: 'Keyword was successfully deleted.' }
       format.json { head :no_content }
     end
   end
