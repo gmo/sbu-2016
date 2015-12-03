@@ -24,15 +24,18 @@ end}
 occurThread = Thread.new {
   while true do
     if !tweets.empty?
-      tweet = tweets.deq
-      topics.each_key {|k| topics[k] += 1 if tweet.downcase.include? k.to_s[2..-3]}
-      puts topics
+        tweet = tweets.deq
+        DB.execute( "SELECT word from keywords" ).each {|word|
+        word = word.to_s[2..-3].downcase
+        if tweet.downcase.include? word
+        puts "found #{word}"
+        DB.execute( "UPDATE keywords
+                    SET count = (select count+1 FROM keywords WHERE word = '#{word}')
+                    WHERE word = '#{word}'" )
+        end}
     end
   end
 }
-
-
-
 
 
 tweetStreamThread.join
