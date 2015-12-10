@@ -1,3 +1,17 @@
+########################################
+# Twitter Word Counter
+#
+# Connects to twitter's streaming API
+# and recieves tweets containing words
+# from [Keywords] table in DB.
+# 
+# Also counts each time any of the
+# words appears in tweets, makes
+# appropriate changes to the DB
+#
+########################################
+
+
 #Database
 require 'sqlite3'
 #Twitter gem
@@ -42,5 +56,4 @@ occurThread = Thread.new {
 
 #initiate all threads
 tweetStreamThread.join
-occurThread.join
 occurThread.join

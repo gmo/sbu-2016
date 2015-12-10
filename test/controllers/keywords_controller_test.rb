@@ -16,14 +16,6 @@ class KeywordsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create keyword" do
-    assert_difference('Keyword.count') do
-      post :create, keyword: { count: @keyword.count, word: @keyword.word }
-    end
-
-    assert_redirected_to keyword_path(assigns(:keyword))
-  end
-
   test "should show keyword" do
     get :show, id: @keyword
     assert_response :success
