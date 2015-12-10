@@ -1,7 +1,9 @@
+#Database
 require 'sqlite3'
+#Twitter gem
 require 'tweetstream'
 
-#initiate tweet stream connection
+#TweetStream gem connection keys, tokens, secrets
 TweetStream.configure do |config|
   config.consumer_key       = 'FwagvzNoy7CfnkfZJkdBQ4RLL'
   config.consumer_secret    = 'LzySWk4kBsiZBKt6uzPgtF0kDL9tCAKTbZTIWATjmtPDMeIuC5'
@@ -10,11 +12,11 @@ TweetStream.configure do |config|
   config.auth_method        = :oauth
 end
 
-#connect to database
+#Connect to the Database
 DB = SQLite3::Database.open "db/development.sqlite3"
 tweets = Queue.new
 
-#tweetstream thread for recieving tweets containing words from topics
+#tweetstream thread for recieving tweets containing words from keywords database
 tweetStreamThread = Thread.new {
   TweetStream::Client.new.track(DB.execute( "SELECT word from keywords" ).flatten.join(", ")) do |status|
   tweets.enq(status.text)
@@ -28,6 +30,7 @@ occurThread = Thread.new {
         DB.execute( "SELECT word from keywords" ).each {|word|
         word = word.to_s[2..-3].downcase
         if tweet.downcase.include? word
+        #visual
         print "."
         DB.execute( "UPDATE keywords
                     SET count = (select count+1 FROM keywords WHERE word = '#{word}')
@@ -37,7 +40,7 @@ occurThread = Thread.new {
   end
 }
 
-
+#initiate all threads
 tweetStreamThread.join
 occurThread.join
 occurThread.join
