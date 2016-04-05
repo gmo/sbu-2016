@@ -1,28 +1,107 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Keywords</h1>
-<INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
+<head>
+  <link rel="stylesheet" type="text/css" href="format.css">
+</head>
+  <style>
+    nav.sidemenu{
+    float: right;
+    width: 10%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size:28px;
+    overflow: visible;
+    margin: 0px 150px 50px 50px;
+    }
+    
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    width: 200px;
+    background-color: #f1f1f1;
+    }
 
-<table>
-  <thead>
-    <tr>
-      <th><%= sortable "word"%></th>
-      <th><%= rev_sortable "count"%></th>
-      <th>Delete</th>
-    </tr>
-  </thead>
+    li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+    }
 
-  <tbody>
-    <% @keywords.all.each do |keyword| %>
+  /* Change the link color on hover */
+    li a:hover {
+    background-color: #555;
+    color: white;
+    }
+</style>
+  </style>
+
+<body>
+  
+  <p id="notice"><%= notice %></p>
+
+  <img src="gmo_logo.png" alt="GMO Logo" style="200px 200px">
+  <header>
+    <h1>Global Media Outreach</h1>
+  </header>
+  
+  <nav class="topmenu">
+    <a href="" target="_blank">Twitter</a>&nbsp;
+    <a href="" target="_blank">Google</a>&nbsp;
+  </nav>
+
+
+<main>
+  
+  <nav class="sidemenu">
+    <ul>
+    <li><a href="" target="_blank">English</a>&nbsp;</li>
+    <li><a href="" target="_blank">Spanish</a>&nbsp;</li>
+    <li><a href="" target="_blank">Arabic</a>&nbsp;</li>
+    <li><a href="" target="_blank">Chinese</a>&nbsp;</li>
+    <li><a href="" target="_blank">French</a>&nbsp;</li>
+    <li><a href="" target="_blank">Hindi</a>&nbsp;</li>
+    <li><a href="" target="_blank">Indonesian</a>&nbsp;</li>
+    <li><a href="" target="_blank">Portuguese</a>&nbsp;</li>
+    <li><a href="" target="_blank">Russian</a>&nbsp;</li>
+    </ul>
+  </nav>
+  
+  
+  <h2>Top Trending Words:</h2>
+
+
+  <INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
+
+  <table>
+    <thead>
       <tr>
-        <td><%= keyword.word.capitalize %></td>
-        <td class="center"><%= keyword.count %></td>
-        <td class="center"><%= link_to '[X]', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= sortable "word"%></th>
+        <th><%= rev_sortable "count"%></th>
+        <th>Delete</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @keywords.all.each do |keyword| %>
+        <tr>
+          <td><%= keyword.word.capitalize %></td>
+          <td class="center"><%= keyword.count %></td>
+          <td class="center"><%= link_to '[X]', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Keyword', new_keyword_path %>
+
+  <%= link_to 'New Keyword', new_keyword_path %>
+  
+</main>
+
+</body>
+
+</html>
