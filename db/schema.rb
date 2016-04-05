@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202060152) do
+ActiveRecord::Schema.define(version: 20160405044545) do
 
   create_table "keywords", force: :cascade do |t|
     t.string  "word"
-    t.integer "count", default: 0
+    t.integer "count",    default: 0
+    t.string  "language"
   end
 
 end
