@@ -5,7 +5,12 @@
   <link rel="stylesheet" type="text/css" href="format.css">
 </head>
   <style>
-    nav.sidemenu{
+    h1{
+      
+      text-align: center;
+    }
+  
+    .sidemenu{
     float: right;
     width: 10%;
     height: 100%;
@@ -25,7 +30,7 @@
     background-color: #f1f1f1;
     }
 
-    li a {
+    li  a {
     display: block;
     color: #000;
     padding: 8px 0 8px 16px;
@@ -37,27 +42,47 @@
     background-color: #555;
     color: white;
     }
+    
+    .ReloadButton{
+      margin: auto;
+      display: block;
+      margin-top:10%;
+      margin-left:43.8%;
+      
+    }
+    
+    .table{
+      display: block;
+      margin-left: 35%;
+      background-color: f1f1f1;
+      font: arial;
+      
+    }
+
+    
 </style>
-  </style>
+
 
 <body>
   
   <p id="notice"><%= notice %></p>
-
-  <img src="gmo_logo.png" alt="GMO Logo" style="200px 200px">
   <header>
+  <!--<img src="gmo_logo2.png" alt="GMO Logo" style="200px 200px">-->
+  <%= image_tag("assets/images/gmo-logo2.png", size: "200") %>
+  
     <h1>Global Media Outreach</h1>
   </header>
-  
-  <nav class="topmenu">
-    <a href="" target="_blank">Twitter</a>&nbsp;
-    <a href="" target="_blank">Google</a>&nbsp;
-  </nav>
 
+  <div class="topmenudiv">
+    <form action="demo_form.asp">
+      <input type="image" src="seniorproject/listen_app/app/assets/images/googlelogo.png" alt="Submit" width="48" height="48">
+    </form>
+  </div>
 
+    
 <main>
   
-  <nav class="sidemenu">
+  <div class="sidemenu">
     <ul>
       <li><a href="" target="_blank">Arabic</a>&nbsp;</li>
       <li><a href="" target="_blank">Chinese</a>&nbsp;</li>
@@ -69,22 +94,27 @@
       <li><a href="" target="_blank">Russian</a>&nbsp;</li>
       <li><a href="" target="_blank">Spanish</a>&nbsp;</li>
     </ul>
-  </nav>
+  </div>
   
   
   <h2>Top Trending Words:</h2>
 
-
+  <div class="ReloadButton">
   <INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
+  </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th><%= sortable "word"%></th>
-        <th><%= rev_sortable "count"%></th>
-        <th>Delete</th>
-      </tr>
-    </thead>
+
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th><%= sortable "word"%></th>
+          <th><%= rev_sortable "count"%></th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+    </div>
+
 
     <tbody>
       <% @keywords.all.each do |keyword| %>
@@ -97,8 +127,8 @@
     </tbody>
   </table>
 
-
   <%= link_to 'New Keyword', new_keyword_path %>
+  
   
 </main>
 
