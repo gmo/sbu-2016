@@ -2,24 +2,46 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="format.css">
 </head>
   <style>
     h1{
-      
+      display: center;
       text-align: center;
+      margin: 20px;
+    }
+    
+    .google{
+     padding-right: 30px;
+      display: inline;
+      margin-right: 30px;
+    }
+    
+    .twitter{
+      
+      display: inline;
+      margin-top: 10%;
+      
+    }
+    
+    h2{
+      margin: 0px;
+      text-align: center;
+      padding: 0px;
+      text-decoration: underline;
+      margin-left: 12%;
+      margin-top: 5%;
     }
   
     .sidemenu{
     float: right;
     width: 10%;
-    height: 100%;
-    display: block;
+    height: 200%;
+    display: flex block;
     text-align: center;
     font-weight: bold;
     font-size:28px;
     overflow: visible;
-    margin: 0px 150px 50px 50px;
+    margin: 0px 200px 50px 50px;
     }
     
     ul {
@@ -43,19 +65,13 @@
     color: white;
     }
     
-    .ReloadButton{
-      margin: auto;
-      display: block;
-      margin-top:10%;
-      margin-left:43.8%;
-      
-    }
     
     .table{
       display: block;
       margin-left: 35%;
       background-color: f1f1f1;
       font: arial;
+      margin-top: 5%;
       
     }
 
@@ -67,16 +83,27 @@
   
   <p id="notice"><%= notice %></p>
   <header>
+<<<<<<< Updated upstream
   <!--<img src="gmo_logo2.jpg" alt="GMO Logo" style="200px 200px">-->
   <%= image_tag("gmo_logo.png", :alt => "GMO Logo", :width => "600", :height => "200") %>
   
+=======
+  <%= image_tag("gmo_logo.png", :width =>"600px", :height =>"100px") %>
+>>>>>>> Stashed changes
   </header>
 
-  <div class="topmenudiv">
-    <form action="demo_form.asp">
-      <input type="image" src="seniorproject/listen_app/app/assets/images/googlelogo.png" alt="Submit" width="48" height="48">
-    </form>
-  </div>
+
+  <h1>
+    <div class="google">
+     <%= image_tag("googlelogo.png", :width =>"200px", :height =>"50px") %>
+     </div>
+    <div class="twitter">
+    <%= image_tag("twitter-logo.png", :width =>"200px", :height =>"100px") %>
+    </div>
+  </h1>
+  
+   
+
 
     
 <main>
@@ -98,12 +125,11 @@
   
   <h2>Top Trending Words:</h2>
 
-  <div class="ReloadButton">
-  <INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
-  </div>
-
-
   <div class="table">
+  <INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
+
+
+  
     <table>
       <thead>
         <tr>
