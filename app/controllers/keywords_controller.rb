@@ -70,7 +70,7 @@ class KeywordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def keyword_params
-      params.require(:keyword).permit(:word, :count)
+      params.require(:keyword).permit(:word, :count, :language)
     end
     
     def sort_column
