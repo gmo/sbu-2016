@@ -83,13 +83,7 @@
   
   <p id="notice"><%= notice %></p>
   <header>
-<<<<<<< Updated upstream
-  <!--<img src="gmo_logo2.jpg" alt="GMO Logo" style="200px 200px">-->
-  <%= image_tag("gmo_logo.png", :alt => "GMO Logo", :width => "600", :height => "200") %>
-  
-=======
   <%= image_tag("gmo_logo.png", :width =>"600px", :height =>"100px") %>
->>>>>>> Stashed changes
   </header>
 
 
@@ -135,6 +129,7 @@
         <tr>
           <th><%= sortable "word"%></th>
           <th><%= rev_sortable "count"%></th>
+          <th><%= sortable "language"%></th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -146,6 +141,7 @@
         <tr>
           <td><%= keyword.word.capitalize %></td>
           <td class="center"><%= keyword.count %></td>
+          <td class="center"><%= keyword.language %></td>
           <td class="center"><%= link_to '[X]', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160405044545) do
     t.string  "word"
     t.integer "count",    default: 0
     t.string  "language"
+    t.integer "gcount"
   end
 
 end

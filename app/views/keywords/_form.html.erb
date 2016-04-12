@@ -10,22 +10,23 @@
       </ul>
     </div>
   <% end %>
+  
+  <style>
+  p.one {
+    padding-left: 138px;
+  }
+  </style>
 
   <div class="field">
-    <%= f.label :word %><br>
+    <%= f.label :word %>
+    <p style="display:inline" class="one"></p>
+    <%= f.label :language %><br>
     <%= f.text_field :word %>
-    <select>
-      <option value="arabic">Arabic</option>
-      <option value="chinese">Chinese</option>
-      <option value="english">English</option>
-      <option value="french">French</option>
-      <option value="hindi">Hindi</option>
-      <option value="indonesian">Indonesian</option>
-      <option value="portuguese">Portuguese</option>
-      <option value="russian">Russian</option>
-      <option value="spanish">Spanish</option>
-    </select>
-  </div>
+    
+    <%= f.select(:language) do %>
+      <% options_for_select([['Arabic', 'Arabic'], ['Chinese', 'Chinese'], ['English', 'English'], ['French', 'French'], ['Hindi', 'Hindi'], ['Indonesian', 'Indonesian'], ['Portuguese', 'Portuguese'], ['Russian', 'Russian'], ['Spanish', 'Spanish']])%>
+    <% end %>
+  </di>
   
   <div class="actions">
     <%= f.submit %>

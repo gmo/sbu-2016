@@ -1,7 +1,6 @@
 class ChangeKeywords < ActiveRecord::Migration
   def change
-    change_table :keywords do |t|
-      t.string :language
-    end
+    add_column :keywords, :language, :string
+    add_column :keywords, :gcount, :integer
   end
 end
