@@ -4,44 +4,36 @@
 <head>
 </head>
   <style>
+  
+  body{
+    background-color: #D3D3D3;
+    
+  }
     h1{
       display: center;
       text-align: center;
       margin: 20px;
     }
     
-    .google{
-     padding-right: 30px;
-      display: inline;
-      margin-right: 30px;
-    }
-    
     .twitter{
-      
       display: inline;
       margin-top: 10%;
+    margin-left: -10%;
       
-    }
-    
-    h2{
-      margin: 0px;
-      text-align: center;
-      padding: 0px;
-      text-decoration: underline;
-      margin-left: 12%;
-      margin-top: 5%;
     }
   
     .sidemenu{
-    float: right;
+    float: left;
     width: 10%;
     height: 200%;
-    display: flex block;
+    display: block;
     text-align: center;
     font-weight: bold;
-    font-size:28px;
+    font-size:40px;
     overflow: visible;
-    margin: 0px 200px 50px 50px;
+    margin: 5% 15% 5% 5%;
+    color: black;
+    border-radius: 20%;
     }
     
     ul {
@@ -49,32 +41,52 @@
     margin: 0;
     padding: 20px;
     width: 200px;
-    background-color: #f1f1f1;
+    background-color: #bdbdbd;
+    color: black;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+    text-transform: uppercase;
+    border-radius: 5%;
     }
 
     li  a {
     display: block;
-    color: #000;
-    padding: 8px 0 8px 16px;
+    color: #151515;
+    padding: 8px 0 8px 0px;
     text-decoration: none;
+    text-align: center;
+    color: black;
+ 
     }
 
   /* Change the link color on hover */
     li a:hover {
-    background-color: #555;
+    background-color: #055890;
     color: white;
     }
-    
+
     
     .table{
-      display: block;
-      margin-left: 35%;
-      background-color: f1f1f1;
-      font: arial;
-      margin-top: 5%;
+      margin-left: 45%;
+      background-color: 123456;
+      font-family: sans-serif;
+      font-size: 25px;
+      font-style: bold;
+    }
+    
+    .buttons{
+     display: inline block;
+     margin-bottom: 3em;
       
     }
-
+    
+    .addWord{
+      background-color: blue;
+      
+    }
+  
     
 </style>
 
@@ -84,25 +96,17 @@
   <p id="notice"><%= notice %></p>
   <header>
   <%= image_tag("gmo_logo.png", :width =>"600px", :height =>"100px") %>
+
   </header>
 
 
   <h1>
-    <div class="google">
-     <%= image_tag("googlelogo.png", :width =>"200px", :height =>"50px") %>
-     </div>
     <div class="twitter">
-    <%= image_tag("twitter-logo.png", :width =>"200px", :height =>"100px") %>
-    </div>
-  </h1>
-  
-   
-
-
-    
-<main>
-  
-  <div class="sidemenu">
+     <%= image_tag("twitter-logo.png", :width =>"250px", :height =>"150px") %>
+     </div>
+     
+       
+    <div class="sidemenu">
     <ul>
       <li><a href="" target="_blank">Arabic</a>&nbsp;</li>
       <li><a href="" target="_blank">Chinese</a>&nbsp;</li>
@@ -116,13 +120,22 @@
     </ul>
   </div>
   
+  </h1>
   
-  <h2>Top Trending Words:</h2>
+   
 
+
+    
+<main>
+  
+    <div class="buttons">
+      <span style="margin-right: 10em; margin-left: 20em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
+      <span style="font-size:20px;width:100px;display:inline-block"><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
+    </div>
+
+
+ 
   <div class="table">
-  <INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)">
-
-
   
     <table>
       <thead>
@@ -146,10 +159,9 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+    </table>
 
-  <%= link_to 'New Keyword', new_keyword_path %>
-  
+
   
 </main>
 
