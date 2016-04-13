@@ -5,6 +5,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'keywords#index'
+  
+  get '/arabic',    to: 'keywords#arabic'
+  get '/chinese',    to: 'keywords#chinese'
+  get '/english',    to: 'keywords#english'
+  get '/french',    to: 'keywords#french'
+  get '/hindi',    to: 'keywords#hindi'
+  get '/indonesian',    to: 'keywords#indonesian'
+  get '/portuguese',    to: 'keywords#portuguese'
+  get '/russian',    to: 'keywords#russian'
+  get '/spanish',    to: 'keywords#spanish'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

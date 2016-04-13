@@ -7,6 +7,42 @@ class KeywordsController < ApplicationController
   def index
     @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
+  
+  def arabic
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def chinese
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def english
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def french
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def hindi
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def indonesian
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def portuguese
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def russian
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def spanish
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
 
   # GET /keywords/1
   # GET /keywords/1.json
