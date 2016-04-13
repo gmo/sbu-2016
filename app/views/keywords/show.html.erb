@@ -5,4 +5,10 @@
   <%= @keyword.word %>
 </p>
 
-<%= link_to 'Ok', keywords_path %>
+<p>
+  <strong>Language:</strong>
+  <%= @keyword.language %>
+</p>
+
+<span style="font-size:20px;width:100px;display:inline-block"><%= link_to '<button type="button">Ok</button>'.html_safe, keywords_path %></span>
+
