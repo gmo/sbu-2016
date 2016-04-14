@@ -1,4 +1,9 @@
+Dependencies:
+    ruby on rails gem (gem install rails)
+    tweetstream gem (gem install tweetstream)
+
+
 To start the application from the listen_app directory:
     1.  In a bash terminal run: rails s -p $PORT -b $IP
-    2.  In a new terminal run: ruby tweet_listen.rb
-    3.  In a new terminal run: ruby google_trends.rb
+    2.  In a new terminal run: ruby google_trends.rb
+    3.  In a new terminal run: ruby tweet_listen.rb
