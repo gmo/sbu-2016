@@ -1,17 +1,3 @@
-########################################
-# Twitter Word Counter
-#
-# Connects to twitter's streaming API
-# and recieves tweets containing words
-# from [Keywords] table in DB.
-# 
-# Also counts each time any of the
-# words appears in tweets, makes
-# appropriate changes to the DB
-#
-########################################
-
-
 #Database
 require 'sqlite3'
 #Twitter gem
@@ -44,7 +30,7 @@ occurThread = Thread.new {
         DB.execute( "SELECT word from keywords" ).each {|word|
         word = word.to_s[2..-3].downcase
         if tweet.downcase.include? word
-        #visual
+        #run visual
         print "."
         DB.execute( "UPDATE keywords
                     SET count = (select count+1 FROM keywords WHERE word = '#{word}')
