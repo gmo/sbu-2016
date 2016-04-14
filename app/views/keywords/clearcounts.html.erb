@@ -15,7 +15,7 @@
   
   button{
      border: 1px solid;
-     border-radius: 10px;
+     border-radius: 5px;
      width: 100px;
      height: 30px;
      font-size: 20px;
@@ -26,22 +26,13 @@
     }
     
     button:hover{
-      background-color: #dfa329;;
+      background-color:  #dfa329;
     }
     
 </style>
 
-<p id="notice"><%= notice %></p>
+<p >The counts were cleared successfully.</p>
 
-<p>
-  <strong>Word:</strong>
-  <%= @keyword.word %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @keyword.language %>
-</p>
 
 <span><%= link_to '<button type="button">OK</button>'.html_safe, keywords_path %></span>
 </body>

@@ -6,141 +6,154 @@
   <style>
   
   body{
-    background-color: #D3D3D3;
+    background-color: #CDCDCD;
     
   }
     h1{
-      display: center;
-      text-align: center;
-      margin: 20px;
+
+    margin: 15px;
+    }
+    
+    h2{
+      margin-left: 25%;
+      margin-top: 5%;
+      
     }
     
     .twitter{
-      display: inline;
-      margin-top: 10%;
-    margin-left: -5%;
-      
-    }
-    
-    .google{
-      display: inline;
-      margin-top: 10%;
-    margin-left: 10%;
-      
+    display: block;
     }
   
+      .google{
+    display: block;
+    margin-left: .5%;
+    }
+    
     .sidemenu{
     float: left;
     width: 10%;
     height: 200%;
     display: block;
     text-align: center;
-    font-weight: bold;
     font-size:40px;
     overflow: visible;
-    margin: 5% 15% 5% 5%;
+    margin: 5% 0% 10% 5%;
     color: black;
     border-radius: 20%;
+    font-family: arial;
     }
     
     ul {
     list-style-type: none;
     margin: 0;
-    padding: 20px;
     width: 200px;
-    background-color: #bdbdbd;
+    background-color: #CDCDCD;
     color: black;
     display: block;
     text-align: center;
-    font-weight: bold;
     font-size:20px;
-    text-transform: uppercase;
-    border-radius: 5%;
+    line-height: 15px;
     }
 
     li  a {
     display: block;
-    padding: 8px 0 8px 0px;
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
     text-align: center;
+    color: black;
+    border-bottom: thin solid #000000;
+    left:50%;top:50%;
+    margin: 0;
+        line-height: 15px;
     }
 
   /* Change the link color on hover */
     li a:hover {
     background-color: #055890;
     color: white;
+    border-bottom: thin solid #000000;
     }
 
     
     .table{
       margin-left: 35%;
       background-color: 123456;
-      font-family: sans-serif;
+      font-family: arial;
       font-size: 25px;
       font-style: bold;
+      border-radius: 10px;
+    }
+    
+    h3{
+      margin-top: -10%;
+      margin-bottom: 50px;
+      
     }
     
     .buttons{
-     display: inline block;
+     display: inline;
      margin-bottom: 3em;
+     font-family: arial;
+     margin-top: -150%;
     }
     
     button{
-     border: 1px solid;
+      font-family: arial;
      border-radius: 10px;
      width: 150px;
      height: 40px;
      font-size: 20px;
-     font-weight: bold;
-     text-transform: uppercase;
+     margin-top: -500%;
     }
     
     button:hover{
-      background-color:  #055890;
-      color: white;
+      background-color:  #dfa329;
     }
     
     input{
-     border: 1px solid;
      border-radius: 10px;
      width: 150px;
      height: 40px;
      font-size: 20px;
-     font-weight: bold;
-     text-transform: uppercase;
+     margin-top: -500%;
     }
     
     input:hover{
-      background-color:  #055890;
-      color: white;
-      
+      background-color:  #dfa329;
+
     }
     
     .addWord{
-      background-color: blue;
+      background-color:  #dfa329;
       
     }
     
+  
+    
     #keyword_table {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-family: Arial;
         border-collapse: collapse;
         width: 80%;
+        border-radius: 10px;
     }
     
     #keyword_table td, #keyword_table th {
         border: 1px solid #000000;
         text-align: center;
-        
+        font-weight: bold;
+        font-family: arial;
     }
     
-    #keyword_table tr:nth-child(odd){background-color: #dfa329; }
-    #keyword_table tr:nth-child(even){background-color: #f1f1f1}
+    #keyword_table tr:nth-child(odd){background-color: #CDCDCD; }
+    #keyword_table tr:nth-child(even){background-color: #E8E8E8}
     
     #keyword_table th {
         padding-top: 12px;
         padding-bottom: 12px;
         background-color: #055890;
         color: white;
+        font-weight: bold;
+        font-family: arial;
     }
 </style>
 
@@ -152,13 +165,6 @@
   </header>
 
   <h1>
-    <div class="twitter">
-     <%= link_to "#{image_tag("twitter-logo.png", :width =>"250px", :height =>"150px")}".html_safe, "/spanish" %>
-    </div>
-     
-     <div class="google">
-     <%= link_to "#{image_tag("googlelogo.png", :width =>"250px", :height =>"150px")}".html_safe, "/spanishgoogle" %>
-     </div>
      
     <div class="sidemenu">
     <ul>
@@ -175,13 +181,26 @@
     </div>
   </h1>
   
-<main>
+  <h2>
+      <div class="twitter">
+       <%= link_to "#{image_tag("twitterlogo.png", :width =>"100px", :height =>"100px")}".html_safe, "/spanish" %>
+     </div>
+     
+     <div class="google">
+     <%= link_to "#{image_tag("googlelogo.png", :width =>"90px", :height =>"90px")}".html_safe, "/spanishgoogle" %>
+     </div>
+  </h2>
   
+  <h3>
     <div class="buttons">
-      <span style="margin-right: 12em; margin-left: 20em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
+      <span style="margin-right: 2em; margin-left: 24em;"><INPUT TYPE="button" VALUE="Refresh" onClick="history.go(0)"></span>
+      <span style="margin-right: 2em;"><%= link_to '<button type="button">Clear</button>'.html_safe, "/clearcounts" %></span>
       <span><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
     </div>
-
+  </h3>
+  
+  
+<main>
   <div class="table">
   
     <table id = "keyword_table">

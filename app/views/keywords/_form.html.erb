@@ -18,26 +18,47 @@
   }
   
   .one {
-    padding-left: 15%;
+    padding-left: 14%;
     padding-bottom: 1%;
   }
   
   .box{
-    padding-left: 2%;
-    font-size: .8em;
+    font-size: .6em;
+    width: 250px;
   }
   
   .field{
-    font-size: 2em;
+    font-size: 1.5em;
     padding-top: 3%;
     padding-bottom: 1%;
   }
   
   button{
-     border-radius: 10px;
-     width: 150px;
-     height: 40px;
+     border-radius: 5px;
+     width: 120px;
+     height: 30px;
      font-size: 20px;
+    }
+    
+    button:hover{
+      background-color:  #dfa329;
+
+    }
+    
+  .submit{
+     border-radius: 5px;
+     width: 120px;
+     height: 30px;
+     font-size: 20px;
+    }
+    
+    .submit:hover{
+      background-color:  #dfa329;
+
+    }
+    
+    .actions{
+      display: inline;
     }
   </style>
 
@@ -53,7 +74,8 @@
   </div>
   
   <div class="actions">
-    <%= f.submit :class => "button"%>
+    <%= link_to '<button type="button">Back</button>'.html_safe, keywords_path %>
+    <%= f.submit "Add Word" , :class => "submit" %>
   </div>
 <% end %>
 </body>

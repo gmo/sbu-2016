@@ -86,6 +86,7 @@
     
     h3{
       margin-top: -10%;
+      margin-bottom: 50px;
       
     }
     
@@ -192,7 +193,8 @@
   
   <h3>
     <div class="buttons">
-      <span style="margin-right: 5em; margin-left: 18em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
+      <span style="margin-right: 2em; margin-left: 24em;"><INPUT TYPE="button" VALUE="Refresh" onClick="history.go(0)"></span>
+      <span style="margin-right: 2em;"><%= link_to '<button type="button">Clear</button>'.html_safe, "/clearcounts" %></span>
       <span><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
     </div>
   </h3>

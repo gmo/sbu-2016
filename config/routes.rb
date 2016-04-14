@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get '/portuguesegoogle',    to: 'keywords#portuguesegoogle'
   get '/russiangoogle',    to: 'keywords#russiangoogle'
   get '/spanishgoogle',    to: 'keywords#spanishgoogle'
+  get '/clearcounts',    to: 'keywords#clearcounts'
+  get '/create', to: 'keywords#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

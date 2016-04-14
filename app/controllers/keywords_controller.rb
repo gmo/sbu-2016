@@ -39,6 +39,7 @@ class KeywordsController < ApplicationController
   def spanish
     @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
+  
   def englishgoogle
     @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
@@ -73,6 +74,10 @@ class KeywordsController < ApplicationController
   
   def spanishgoogle
     @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def clearcounts
+    (SQLite3::Database.open "db/development.sqlite3").execute( "UPDATE keywords SET count = 0")
   end
 
   # GET /keywords/1
@@ -147,4 +152,5 @@ class KeywordsController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
+    
 end
