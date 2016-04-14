@@ -60,9 +60,12 @@
 
     li  a {
     display: block;
+    color: #151515;
     padding: 8px 0 8px 0px;
     text-decoration: none;
     text-align: center;
+    color: black;
+ 
     }
 
   /* Change the link color on hover */
@@ -83,36 +86,6 @@
     .buttons{
      display: inline block;
      margin-bottom: 3em;
-    }
-    
-    button{
-     border: 1px solid;
-     border-radius: 10px;
-     width: 150px;
-     height: 40px;
-     font-size: 20px;
-     font-weight: bold;
-     text-transform: uppercase;
-    }
-    
-    button:hover{
-      background-color:  #055890;
-      color: white;
-    }
-    
-    input{
-     border: 1px solid;
-     border-radius: 10px;
-     width: 150px;
-     height: 40px;
-     font-size: 20px;
-     font-weight: bold;
-     text-transform: uppercase;
-    }
-    
-    input:hover{
-      background-color:  #055890;
-      color: white;
       
     }
     
@@ -146,31 +119,34 @@
 
 
 <body>
-
+  
+  <p id="notice"><%= notice %></p>
   <header>
   <%= image_tag("gmo_logo.png", :width =>"600px", :height =>"100px") %>
+
   </header>
+
 
   <h1>
     <div class="twitter">
-     <%= link_to "#{image_tag("twitter-logo.png", :width =>"250px", :height =>"150px")}".html_safe, "/portuguese" %>
+     <%= link_to "#{image_tag("twitter-logo.png", :width =>"250px", :height =>"150px")}".html_safe, "/russian" %>
     </div>
      
      <div class="google">
-     <%= link_to "#{image_tag("googlelogo.png", :width =>"250px", :height =>"150px")}".html_safe, "/portuguesegoogle" %>
+     <%= link_to "#{image_tag("googlelogo.png", :width =>"250px", :height =>"150px")}".html_safe, "/russiangoogle" %>
      </div>
-     
+       
     <div class="sidemenu">
     <ul>
-      <li><a href="/arabic" target="_self" >Arabic</a>&nbsp;</li>
-      <li><a href="/chinese" target="_self" >Chinese</a>&nbsp;</li>
-      <li><a href="/keywords" target="_self" >English</a>&nbsp;</li>
-      <li><a href="/french" target="_self" >French</a>&nbsp;</li>
-      <li><a href="/hindi" target="_self" >Hindi</a>&nbsp;</li>
-      <li><a href="/indonesian" target="_self" >Indonesian</a>&nbsp;</li>
-      <li><a href="/portuguese" target="_self" >Portuguese</a>&nbsp;</li>
-      <li><a href="/russian" target="_self" >Russian</a>&nbsp;</li>
-      <li><a href="/spanish" target="_self" >Spanish</a>&nbsp;</li>
+      <li><a href="/arabicgoogle" target="_self" >Arabic</a>&nbsp;</li>
+      <li><a href="/chinesegoogle" target="_self" >Chinese</a>&nbsp;</li>
+      <li><a href="/englishgoogle" target="_self" >English</a>&nbsp;</li>
+      <li><a href="/frenchgoogle" target="_self" >French</a>&nbsp;</li>
+      <li><a href="/hindigoogle" target="_self" >Hindi</a>&nbsp;</li>
+      <li><a href="/indonesiangoogle" target="_self" >Indonesian</a>&nbsp;</li>
+      <li><a href="/portuguesegoogle" target="_self" >Portuguese</a>&nbsp;</li>
+      <li><a href="/russiangoogle" target="_self" >Russian</a>&nbsp;</li>
+      <li><a href="/spanishgoogle" target="_self" >Spanish</a>&nbsp;</li>
     </ul>
     </div>
   </h1>
@@ -178,28 +154,31 @@
 <main>
   
     <div class="buttons">
-      <span style="margin-right: 12em; margin-left: 20em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
-      <span><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
+      <span style="margin-right: 10em; margin-left: 20em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
+      <span style="font-size:20px;width:100px;display:inline-block"><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
     </div>
 
+ 
   <div class="table">
   
     <table id = "keyword_table">
       <thead>
         <tr>
           <th><%= sortable "word"%></th>
-          <th><%= rev_sortable "count"%></th>
+          <th><%= rev_sortable "rank"%></th>
           <th><font color="black">Delete</font></th>
         </tr>
       </thead>
     </div>
+
+
  
     <tbody>
       <% @keywords.all.each do |keyword| %>
-        <% if keyword.language == "Portuguese" %>
+        <% if keyword.language == "Russian" %>
           <tr>
             <td><font color="black" size="4"><%= keyword.word.capitalize %></font></td>
-            <td class="center"><font color="black" size="4"><%= keyword.count %></font></td>
+            <td class="center"><font color="black" size="4"><%= keyword.gcount %></font></td>
             <td class="center"><%= link_to "#{image_tag("delete-button.png", :width =>"30px", :height =>"30px")}".html_safe, keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

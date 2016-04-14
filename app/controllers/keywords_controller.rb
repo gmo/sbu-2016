@@ -16,10 +16,6 @@ class KeywordsController < ApplicationController
     @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
   
-  def english
-    @keywords = Keyword.order(sort_column + " " + sort_direction)
-  end
-  
   def french
     @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
@@ -41,6 +37,41 @@ class KeywordsController < ApplicationController
   end
   
   def spanish
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  def englishgoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def arabicgoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def chinesegoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def frenchgoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def hindigoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def indonesiangoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def portuguesegoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def russiangoogle
+    @keywords = Keyword.order(sort_column + " " + sort_direction)
+  end
+  
+  def spanishgoogle
     @keywords = Keyword.order(sort_column + " " + sort_direction)
   end
 
@@ -106,7 +137,7 @@ class KeywordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def keyword_params
-      params.require(:keyword).permit(:word, :count, :language)
+      params.require(:keyword).permit(:word, :count, :language, :gcount)
     end
     
     def sort_column

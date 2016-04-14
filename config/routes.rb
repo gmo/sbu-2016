@@ -8,13 +8,21 @@ Rails.application.routes.draw do
   
   get '/arabic',    to: 'keywords#arabic'
   get '/chinese',    to: 'keywords#chinese'
-  get '/english',    to: 'keywords#english'
   get '/french',    to: 'keywords#french'
   get '/hindi',    to: 'keywords#hindi'
   get '/indonesian',    to: 'keywords#indonesian'
   get '/portuguese',    to: 'keywords#portuguese'
   get '/russian',    to: 'keywords#russian'
   get '/spanish',    to: 'keywords#spanish'
+  get '/arabicgoogle',    to: 'keywords#arabicgoogle'
+  get '/chinesegoogle',    to: 'keywords#chinesegoogle'
+  get '/englishgoogle',    to: 'keywords#englishgoogle'
+  get '/frenchgoogle',    to: 'keywords#frenchgoogle'
+  get '/hindigoogle',    to: 'keywords#hindigoogle'
+  get '/indonesiangoogle',    to: 'keywords#indonesiangoogle'
+  get '/portuguesegoogle',    to: 'keywords#portuguesegoogle'
+  get '/russiangoogle',    to: 'keywords#russiangoogle'
+  get '/spanishgoogle',    to: 'keywords#spanishgoogle'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

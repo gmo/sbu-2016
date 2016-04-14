@@ -18,7 +18,14 @@
     .twitter{
       display: inline;
       margin-top: 10%;
-    margin-left: -10%;
+    margin-left: -5%;
+      
+    }
+    
+    .google{
+      display: inline;
+      margin-top: 10%;
+    margin-left: 10%;
       
     }
   
@@ -146,7 +153,11 @@
 
   <h1>
     <div class="twitter">
-     <%= image_tag("twitter-logo.png", :width =>"250px", :height =>"150px") %>
+     <%= link_to "#{image_tag("twitter-logo.png", :width =>"250px", :height =>"150px")}".html_safe, "/keywords" %>
+    </div>
+     
+     <div class="google">
+     <%= link_to "#{image_tag("googlelogo.png", :width =>"250px", :height =>"150px")}".html_safe, "/englishgoogle" %>
      </div>
      
     <div class="sidemenu">

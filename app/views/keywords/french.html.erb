@@ -18,7 +18,14 @@
     .twitter{
       display: inline;
       margin-top: 10%;
-    margin-left: -10%;
+    margin-left: -5%;
+      
+    }
+    
+    .google{
+      display: inline;
+      margin-top: 10%;
+    margin-left: 10%;
       
     }
   
@@ -53,12 +60,9 @@
 
     li  a {
     display: block;
-    color: #151515;
     padding: 8px 0 8px 0px;
     text-decoration: none;
     text-align: center;
-    color: black;
- 
     }
 
   /* Change the link color on hover */
@@ -79,6 +83,36 @@
     .buttons{
      display: inline block;
      margin-bottom: 3em;
+    }
+    
+    button{
+     border: 1px solid;
+     border-radius: 10px;
+     width: 150px;
+     height: 40px;
+     font-size: 20px;
+     font-weight: bold;
+     text-transform: uppercase;
+    }
+    
+    button:hover{
+      background-color:  #055890;
+      color: white;
+    }
+    
+    input{
+     border: 1px solid;
+     border-radius: 10px;
+     width: 150px;
+     height: 40px;
+     font-size: 20px;
+     font-weight: bold;
+     text-transform: uppercase;
+    }
+    
+    input:hover{
+      background-color:  #055890;
+      color: white;
       
     }
     
@@ -112,20 +146,20 @@
 
 
 <body>
-  
-  <p id="notice"><%= notice %></p>
+
   <header>
   <%= image_tag("gmo_logo.png", :width =>"600px", :height =>"100px") %>
-
   </header>
-
 
   <h1>
     <div class="twitter">
-     <%= image_tag("twitter-logo.png", :width =>"250px", :height =>"150px") %>
+     <%= link_to "#{image_tag("twitter-logo.png", :width =>"250px", :height =>"150px")}".html_safe, "/french" %>
+    </div>
+     
+     <div class="google">
+     <%= link_to "#{image_tag("googlelogo.png", :width =>"250px", :height =>"150px")}".html_safe, "/frenchgoogle" %>
      </div>
      
-       
     <div class="sidemenu">
     <ul>
       <li><a href="/arabic" target="_self" >Arabic</a>&nbsp;</li>
@@ -138,18 +172,16 @@
       <li><a href="/russian" target="_self" >Russian</a>&nbsp;</li>
       <li><a href="/spanish" target="_self" >Spanish</a>&nbsp;</li>
     </ul>
-    <%= image_tag("twitter-logo.png", :width =>"200px", :height =>"100px") %>
     </div>
   </h1>
   
 <main>
   
     <div class="buttons">
-      <span style="margin-right: 10em; margin-left: 20em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
-      <span style="font-size:20px;width:100px;display:inline-block"><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
+      <span style="margin-right: 12em; margin-left: 20em;"><INPUT TYPE="button" VALUE="Reload" onClick="history.go(0)"></span>
+      <span><%= link_to '<button type="button">Add Word</button>'.html_safe, new_keyword_path %></span>
     </div>
 
- 
   <div class="table">
   
     <table id = "keyword_table">
@@ -161,8 +193,6 @@
         </tr>
       </thead>
     </div>
-
-
  
     <tbody>
       <% @keywords.all.each do |keyword| %>
