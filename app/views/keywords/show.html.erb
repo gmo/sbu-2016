@@ -1,3 +1,37 @@
+<body>
+<header>
+  <%= image_tag("gmo_logo.png", :width =>"600px", :height =>"100px") %>
+</header>
+
+<style>
+  body{
+    background-color: #D3D3D3;
+  }
+  
+  p{
+    font-size: 20px;
+    padding-top: 10px;
+  }
+  
+  button{
+     border: 1px solid;
+     border-radius: 10px;
+     width: 100px;
+     height: 30px;
+     font-size: 20px;
+     margin-top: 20px;
+     background-color: none;
+     font-weight: bold;
+     text-transform: uppercase;
+    }
+    
+    button:hover{
+      background-color:  #055890;
+      color: white;
+    }
+    
+</style>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,5 +44,6 @@
   <%= @keyword.language %>
 </p>
 
-<span style="font-size:20px;width:100px;display:inline-block"><%= link_to '<button type="button">Ok</button>'.html_safe, keywords_path %></span>
+<span><%= link_to '<button type="button">OK</button>'.html_safe, keywords_path %></span>
+</body>
 

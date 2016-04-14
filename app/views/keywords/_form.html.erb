@@ -1,4 +1,5 @@
-<%= form_for(@keyword) do |f| %>
+<body>
+  <%= form_for(@keyword) do |f| %>
   <% if @keyword.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@keyword.errors.count, "error") %> prohibited this keyword from being saved:</h2>
@@ -10,25 +11,50 @@
       </ul>
     </div>
   <% end %>
-  
   <style>
-  p.one {
-    padding-left: 138px;
+  body{
+    background-color: #D3D3D3;
+    
   }
+  
+  .one {
+    padding-left: 15%;
+    padding-bottom: 1%;
+  }
+  
+  .box{
+    padding-left: 2%;
+    font-size: .8em;
+  }
+  
+  .field{
+    font-size: 2em;
+    padding-top: 3%;
+    padding-bottom: 1%;
+  }
+  
+  button{
+     border: 2px solid;
+     border-radius: 10px;
+     width: 150px;
+     height: 40px;
+     font-size: 20px;
+    }
   </style>
 
   <div class="field">
     <%= f.label :word %>
     <p style="display:inline" class="one"></p>
     <%= f.label :language %><br>
-    <%= f.text_field :word %>
+    <%= f.text_field( :word, :class => "box") %>
     
-    <%= f.select(:language) do %>
-      <% options_for_select([['Arabic', 'Arabic'], ['Chinese', 'Chinese'], ['English', 'English'], ['French', 'French'], ['Hindi', 'Hindi'], ['Indonesian', 'Indonesian'], ['Portuguese', 'Portuguese'], ['Russian', 'Russian'], ['Spanish', 'Spanish']])%>
+    <%= f.select :language do %>
+      <% options_for_select([['Arabic', 'Arabic'], ['Chinese', 'Chinese'], ['English', 'English'], ['French', 'French'], ['Hindi', 'Hindi'], ['Indonesian', 'Indonesian'], ['Portuguese', 'Portuguese'], ['Russian', 'Russian'], ['Spanish', 'Spanish']], {:class => "box"})%>
     <% end %>
-  </di>
+  </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button"%>
   </div>
 <% end %>
+</body>
