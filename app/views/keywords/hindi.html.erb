@@ -69,7 +69,7 @@
 
     
     .table{
-      margin-left: 45%;
+      margin-left: 35%;
       background-color: 123456;
       font-family: sans-serif;
       font-size: 25px;
@@ -86,8 +86,28 @@
       background-color: blue;
       
     }
-  
     
+    #keyword_table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+    }
+    
+    #keyword_table td, #keyword_table th {
+        border: 1px solid #000000;
+        text-align: center;
+        
+    }
+    
+    #keyword_table tr:nth-child(odd){background-color: #dfa329; }
+    #keyword_table tr:nth-child(even){background-color: #f1f1f1}
+    
+    #keyword_table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #055890;
+        color: white;
+    }
 </style>
 
 
@@ -110,7 +130,7 @@
     <ul>
       <li><a href="/arabic" target="_self" >Arabic</a>&nbsp;</li>
       <li><a href="/chinese" target="_self" >Chinese</a>&nbsp;</li>
-      <li><a href="/english" target="_self" >English</a>&nbsp;</li>
+      <li><a href="/keywords" target="_self" >English</a>&nbsp;</li>
       <li><a href="/french" target="_self" >French</a>&nbsp;</li>
       <li><a href="/hindi" target="_self" >Hindi</a>&nbsp;</li>
       <li><a href="/indonesian" target="_self" >Indonesian</a>&nbsp;</li>
@@ -132,13 +152,12 @@
  
   <div class="table">
   
-    <table>
+    <table id = "keyword_table">
       <thead>
         <tr>
           <th><%= sortable "word"%></th>
           <th><%= rev_sortable "count"%></th>
-          <th><%= sortable "language"%></th>
-          <th>Delete</th>
+          <th><font color="black">Delete</font></th>
         </tr>
       </thead>
     </div>
@@ -149,10 +168,9 @@
       <% @keywords.all.each do |keyword| %>
         <% if keyword.language == "Hindi" %>
           <tr>
-            <td><%= keyword.word.capitalize %></td>
-            <td class="center"><%= keyword.count %></td>
-            <td class="center"><%= keyword.language %></td>
-            <td class="center"><%= link_to '[X]', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><font color="black" size="4"><%= keyword.word.capitalize %></font></td>
+            <td class="center"><font color="black" size="4"><%= keyword.count %></font></td>
+            <td class="center"><%= link_to "#{image_tag("delete-button.png", :width =>"30px", :height =>"30px")}".html_safe, keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       <% end %>
